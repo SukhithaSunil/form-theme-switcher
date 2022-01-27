@@ -1,29 +1,61 @@
 import { createTheme } from "@mui/material/styles";
 import { PaletteMode } from "@mui/material";
 import { currentTheme } from "../redux/reducers/themeSlice";
-
-export interface ThemeState {
-  theme: "light" | "dark";
-}
+import { useAppSelector } from "../redux/store/store";
 
 const MuiTheme = () => {
-  const theme = createTheme({
+  const selectedTheme = useAppSelector(currentTheme);
+
+  const theme: PaletteMode =
+    selectedTheme.toString() == "dark" ? "dark" : "light";
+  console.log(theme);
+
+  const newTheme = createTheme({
+    components: {
+      MuiCssBaseline: {
+        styleOverrides: {
+          body: {
+            background:
+              theme == "light"
+                ? "linear-gradient(45deg, #F2E2BA, transparent 25% 75%, #F2E2BA),linear-gradient(135deg, #e5eafb, #ffff 25% 75%, #e5eafb)"
+                : "linear-gradient(45deg, #323269, transparent 25% 75%, #323269), linear-gradient(135deg, #4f244f, #210c4c 25% 75%, #4f244f) ",
+          },
+        },
+      },
+      MuiButton: {
+        styleOverrides: {
+          root: {
+            borderRadius: 8,
+          },
+        },
+      },
+    },
     palette: {
-      mode: currentTheme.toString() as PaletteMode,
+      mode: theme,
       primary: {
-        main: currentTheme.toString() === "dark" ? "#90caf9" : "#1976d2",
+        main: "#FC5C55",
       },
       secondary: {
-        main: currentTheme.toString() === "dark" ? "#0088ff" : "#f50057",
-        // contrastText: currentTheme.toString() === 'dark' ? red[800] : red[200],
+        main: theme === "dark" ? "#fff" : "#ffdede",
+        contrastText: theme === "dark" ? "blue" : "blue",
       },
       background: {
-        default: currentTheme.toString() === "dark" ? "#212121" : "#fff",
-        paper: currentTheme.toString() === "dark" ? "#424242" : "#fff",
+        default: theme === "dark" ? "#212121" : "#fff",
+        paper:
+          theme == "light"
+            ? "linear-gradient(45deg, #F2E2BA, transparent 25% 75%, #F2E2BA),linear-gradient(135deg, #E5EAFB, #E5EAFB 25% 75%, #E5EAFB)"
+            : "linear-gradient(135deg, #323269, transparent 25% 75%, #323269), linear-gradient(45deg, #4f244f, #210c4c 25% 75%, #4f244f) ",
+      },
+      error: {
+        main: theme === "dark" ? "#f2e2ba" : "#FC5C55",
+      },
+      text: {
+        primary: theme === "dark" ? "#fff" : "#000",
+        secondary: "#FC5C55",
       },
     },
   });
-  return theme;
+  return newTheme;
 };
 
-export default MuiTheme;
+export { MuiTheme };

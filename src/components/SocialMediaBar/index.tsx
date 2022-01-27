@@ -1,40 +1,24 @@
+import Divider from "@mui/material/Divider";
+import Typography from "@mui/material/Typography";
 import React from "react";
-import {
-  AppleLoginButton,
-  createButton,
-  FacebookLoginButton,
-  GoogleLoginButton,
-  createSvgIcon,
-} from "react-social-login-buttons";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import AppleIcon from "@mui/icons-material/Apple";
+import { AppleButton, FacebookButton, GoogleButton } from "./style";
 const SocialMediaBar = () => {
-  const facebbookConfig = {
-    iconFormat: (name: string) => `fa fa-${name}`,
-    icon: createSvgIcon(FacebookIcon),
-    style: { background: "#ffdede", width: "50px", color: "#3b5998" },
-  };
-  /** My Facebook login button. */
-  const appleConfig = {
-    iconFormat: (name: string) => `fa fa-${name}`,
-    icon: createSvgIcon(AppleIcon),
-    style: { background: "#ffdede", width: "50px", color: "#000000" },
-  };
-
-  const MyFacebookButton = createButton(facebbookConfig);
-  const MyAppleButton = createButton(appleConfig);
-
   return (
-    <div style={{ display: "flex" }}>
-      <GoogleLoginButton
-        onClick={() => alert("Hello")}
-        style={{ background: "#ffdede" }}
-      >
-        <span>Sign in with Google</span>
-      </GoogleLoginButton>
-      <MyFacebookButton />
-      <MyAppleButton />
-    </div>
+    <>
+      <div style={{ width: "25%", margin: "auto" }}>
+        <Divider>
+          <Typography color="#A99E82"> {"OR"}</Typography>
+        </Divider>
+      </div>
+
+      <div style={{ display: "flex" }}>
+        <GoogleButton>
+          <span>Sign in with Google</span>
+        </GoogleButton>
+        <FacebookButton />
+        <AppleButton />
+      </div>
+    </>
   );
 };
 

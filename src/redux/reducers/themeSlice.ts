@@ -1,8 +1,9 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState, AppThunk } from "../store/store";
+import { PaletteMode } from "@mui/material";
 
 export interface ThemeState {
-  theme: "light" | "dark";
+  theme: PaletteMode;
 }
 
 const initialState: ThemeState = {
@@ -25,5 +26,5 @@ export const themeSlice = createSlice({
 
 export const { changeTheme } = themeSlice.actions;
 
-export const currentTheme = (state: RootState) => state.theme;
+export const currentTheme = (state: RootState) => state.theme.theme;
 export default themeSlice.reducer;

@@ -13,12 +13,7 @@ const ThemeSwitch = () => {
   };
   return (
     <div>
-      <FormGroup>
-        <FormControlLabel
-          control={<ThemeSwitcher sx={{ m: 1 }} onChange={handleChangeTheme} />}
-          label="theme switch"
-        />
-      </FormGroup>
+      <ThemeSwitcher sx={{ m: 1 }} onChange={handleChangeTheme} />
     </div>
   );
 };

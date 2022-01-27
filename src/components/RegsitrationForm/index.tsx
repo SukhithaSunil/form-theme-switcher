@@ -50,9 +50,8 @@ const RegsitrationForm = () => {
           id="fullName"
           placeholder="Full Name"
           name="fullName"
-          //   autoComplete="fullName"
-          autoFocus
           value={formik.values.fullName}
+          onBlur={formik.handleBlur}
           onChange={formik.handleChange}
           error={formik.touched.fullName && Boolean(formik.errors.fullName)}
           helperText={formik.touched.fullName && formik.errors.fullName}
@@ -64,8 +63,7 @@ const RegsitrationForm = () => {
           id="email"
           placeholder="Email"
           name="email"
-          //   autoComplete="email"
-          autoFocus
+          onBlur={formik.handleBlur}
           value={formik.values.email}
           onChange={formik.handleChange}
           error={formik.touched.email && Boolean(formik.errors.email)}
@@ -78,7 +76,7 @@ const RegsitrationForm = () => {
           name="password"
           placeholder="Password"
           id="password"
-          //   autoComplete="current-password"
+          onBlur={formik.handleBlur}
           value={formik.values.password}
           onChange={formik.handleChange}
           error={formik.touched.password && Boolean(formik.errors.password)}
@@ -94,8 +92,20 @@ const RegsitrationForm = () => {
             ),
           }}
         />
-        <Button color="primary" variant="contained" fullWidth type="submit">
-          Continue
+        <Button
+          color="primary"
+          variant="contained"
+          fullWidth
+          type="submit"
+          sx={{
+            height: 56,
+            mt: 2,
+            textTransform: "capitalize",
+          }}
+        >
+          <span style={{ fontWeight: "500", fontSize: "medium" }}>
+            Continue
+          </span>
         </Button>
       </form>
     </div>

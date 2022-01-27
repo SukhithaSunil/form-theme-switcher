@@ -5,13 +5,10 @@ import App from "./App";
 import { store } from "../src/redux/store/store";
 import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorker";
-import { ThemeProvider } from "@mui/material/styles";
-import MuiTheme from "../src/styles/MuiTheme";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <ThemeProvider theme={MuiTheme}></ThemeProvider>
       <App />
     </Provider>
   </React.StrictMode>,

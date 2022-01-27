@@ -13,10 +13,24 @@ const ThemeBar = () => {
         alignItems: "center",
       }}
     >
-      <Typography component="h1" variant="h5">
-        Travel Guru
-      </Typography>
-      <ArrowCircleRightIcon />
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        <Typography
+          variant="h6"
+          gutterBottom
+          component="div"
+          sx={{ mb: 0, fontWeight: 600 }}
+          color="primary"
+        >
+          Travelguru
+        </Typography>
+
+        <ArrowCircleRightIcon color="primary" />
+      </div>
       <ThemeSwitch />
     </div>
   );
