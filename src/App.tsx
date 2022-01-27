@@ -1,10 +1,8 @@
-import React from "react"
-import SignUp from "../src/components/SignUp"
+import React from "react";
+import SignUp from "../src/components/SignUp";
 
 function App() {
-  return (
-   <SignUp/>
-  );
+  return <SignUp />;
 }
 
 export default App;

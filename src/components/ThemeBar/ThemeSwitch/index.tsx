@@ -1,16 +1,24 @@
-import React from "react";
-import { styled } from "@mui/material/styles";
-import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import Switch, { SwitchProps } from "@mui/material/Switch";
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
+import FormGroup from "@mui/material/FormGroup";
+import React from "react";
 import ThemeSwitcher from "./styles";
+import { changeTheme } from "../../../redux/reducers/themeSlice";
+import { useAppDispatch } from "../../../redux/store/store";
 
 const ThemeSwitch = () => {
+  const dispatch = useAppDispatch();
+
+  const handleChangeTheme = () => {
+    dispatch(changeTheme());
+  };
   return (
     <div>
-      <ThemeSwitcher />
+      <FormGroup>
+        <FormControlLabel
+          control={<ThemeSwitcher sx={{ m: 1 }} onChange={handleChangeTheme} />}
+          label="theme switch"
+        />
+      </FormGroup>
     </div>
   );
 };
