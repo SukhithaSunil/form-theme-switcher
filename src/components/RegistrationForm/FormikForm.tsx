@@ -1,18 +1,14 @@
-import React, { useState } from "react";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import InputAdornment from "@mui/material/InputAdornment";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import IconButton from "@mui/material/IconButton";
-import CircularProgress from "@mui/material/CircularProgress";
 import LoadingButton from "@mui/lab/LoadingButton";
-import Stack from "@mui/material/Stack";
-import Snackbar from "@mui/material/Snackbar";
+import CircularProgress from "@mui/material/CircularProgress";
+import IconButton from "@mui/material/IconButton";
+import InputAdornment from "@mui/material/InputAdornment";
+import TextField from "@mui/material/TextField";
 import { FormikProps } from "formik";
-import Alert from "../../util/Alert";
-import { useAppDispatch, useAppSelector } from "../../redux/store/store";
+import React, { useState } from "react";
 import { formState } from "../../redux/reducers/formSlice";
+import { useAppSelector } from "../../redux/store/store";
 export interface User {
   password: string;
   email: string;
@@ -23,27 +19,10 @@ interface IProps {
   formik: FormikProps<User>;
 }
 const FormikForm = ({ formik }: IProps) => {
-  const dispatch = useAppDispatch();
   const status = useAppSelector(formState).toString();
   const [showPassword, setShowPassword] = useState(false);
   const togglePasswordView = () => {
     setShowPassword(!showPassword);
-  };
-  const [open, setOpen] = React.useState(false);
-
-  const handleClick = () => {
-    setOpen(true);
-  };
-
-  const handleClose = (
-    event?: React.SyntheticEvent | Event,
-    reason?: string
-  ) => {
-    if (reason === "clickaway") {
-      return;
-    }
-
-    setOpen(false);
   };
   return (
     <div>
@@ -116,17 +95,6 @@ const FormikForm = ({ formik }: IProps) => {
           Continue
         </LoadingButton>
       </form>
-      <Stack spacing={2} sx={{ width: "100%" }}>
-        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-          <Alert
-            onClose={handleClose}
-            severity="success"
-            sx={{ width: "100%" }}
-          >
-            This is a success message!
-          </Alert>
-        </Snackbar>
-      </Stack>
     </div>
   );
 };

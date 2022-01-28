@@ -1,21 +1,18 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store/store";
-import { AxiosError } from "axios";
 
 export interface User {
   password: string;
   email: string;
+  fullName: string;
 }
 type loginError = {
   message: string;
 };
 
 const loginThunk = createAsyncThunk<
-  // Return type of the payload creator
   string,
-  // First argument to the payload creator
   User,
-  // Types for ThunkAPI
   {
     rejectValue: loginError;
   }
@@ -61,7 +58,6 @@ const formSlice = createSlice({
     });
     builder.addCase(loginThunk.rejected, (state, action) => {
       if (action.payload) {
-        // Since we passed in `MyKnownError` to `rejectValue` in `updateUser`, the type information will be available here.
         state.error = action.payload.message;
       }
       state.status = "idle";

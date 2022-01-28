@@ -1,22 +1,19 @@
-import React from "react";
-import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
-import TextField from "@mui/material/TextField";
-import Link from "@mui/material/Link";
-import Divider from "@mui/material/Divider";
-import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
+import CssBaseline from "@mui/material/CssBaseline";
+import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Grid";
+import Link from "@mui/material/Link";
+import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
-import SignUpImage from "../SignUpImage";
+import React from "react";
 import RegsitrationForm from "../RegistrationForm";
+import SignUpImage from "../SignUpImage";
 import SocialMediaBar from "../SocialMediaBar";
 import ThemeBar from "../ThemeBar";
 
 const SignUp = () => {
   return (
     <Grid container component="main" sx={{ padding: { md: "100px 75px" } }}>
-      {/* background: "#e7ebfd" */}
       <CssBaseline />
       <SignUpImage />
       <Grid
@@ -26,12 +23,6 @@ const SignUp = () => {
         md={5}
         component={Paper}
         sx={{ borderRadius: "0px 16px 16px 0px!important" }}
-        // sx={{
-        //   background: (t) =>
-        //     t.palette.mode === "light"
-        //       ? "linear-gradient( blue,red)"
-        //       : "linear-gradient(135deg, #323269, transparent 25% 75%, #323269), linear-gradient(45deg, #4f244f, #210c4c 25% 75%, #4f244f) ",
-        // }}
       >
         <Box
           sx={{

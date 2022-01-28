@@ -8,7 +8,6 @@ const MuiTheme = () => {
 
   const theme: PaletteMode =
     selectedTheme.toString() == "dark" ? "dark" : "light";
-  console.log(theme);
 
   const newTheme = createTheme({
     components: {

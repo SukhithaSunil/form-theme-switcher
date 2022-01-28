@@ -1,16 +1,16 @@
-import React, { useEffect } from "react";
 import { useFormik } from "formik";
+import { toast, ToastContainer } from "material-react-toastify";
+import "material-react-toastify/dist/ReactToastify.css";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 import * as yup from "yup";
-import { useAppDispatch } from "../../redux/store/store";
 import {
-  loginThunk,
   formError,
   formState,
+  loginThunk,
 } from "../../redux/reducers/formSlice";
-import { ToastContainer, toast } from "material-react-toastify";
-import "material-react-toastify/dist/ReactToastify.css";
+import { useAppDispatch } from "../../redux/store/store";
 import FormikForm from "./FormikForm";
-import { useSelector } from "react-redux";
 
 const RegistrationForm = () => {
   const dispatch = useAppDispatch();
