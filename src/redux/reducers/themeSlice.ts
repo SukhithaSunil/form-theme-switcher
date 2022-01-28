@@ -1,13 +1,16 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { RootState, AppThunk } from "../store/store";
 import { PaletteMode } from "@mui/material";
+import { createSlice } from "@reduxjs/toolkit";
+import { RootState } from "../store/store";
 
 export interface ThemeState {
   theme: PaletteMode;
 }
 
+const findThemefromLocal = () => {
+  return (localStorage.getItem("theme") || "light") as PaletteMode;
+};
 const initialState: ThemeState = {
-  theme: "light",
+  theme: findThemefromLocal(),
 };
 
 export const themeSlice = createSlice({
@@ -15,12 +18,9 @@ export const themeSlice = createSlice({
   initialState,
   reducers: {
     changeTheme: (state) => {
+      localStorage.setItem("theme", state.theme === "dark" ? "light" : "dark");
       state.theme = state.theme === "dark" ? "light" : "dark";
     },
-
-    // incrementByAmount: (state, action: PayloadAction<number>) => {
-    //   state.value += action.payload;
-    // },
   },
 });
 

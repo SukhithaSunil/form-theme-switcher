@@ -9,7 +9,6 @@ export interface User {
 type loginError = {
   message: string;
 };
-
 const loginThunk = createAsyncThunk<
   // Return type of the payload creator
   string,
@@ -19,26 +18,30 @@ const loginThunk = createAsyncThunk<
   {
     rejectValue: loginError;
   }
->("users/login", async (userData: User, thunkApi) => {
-  const response = await fetch("http://localhost:3001/login", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(userData),
-  });
-
-  if (response.status !== 200) {
-    const message = await response.json();
-    return thunkApi.rejectWithValue({ message } as loginError);
+>("users/login", async (userData: User, { rejectWithValue }) => {
+  try {
+    const response = await fetch("http://localhost:3001/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    });
+    const resp = await response.json();
+    console.log(resp);
+    return resp;
+  } catch (err: any) {
+    const error: AxiosError<loginError> = err; // cast the error for access
+    if (!error.response) {
+      throw err;
+    }
+    // We got validation errors, let's return those so we can reference in our component and set form errors
+    return rejectWithValue(error.response.data);
   }
-  const resp = await response.json();
-  console.log(resp);
-  return resp;
 });
 
 interface Formtype {
-  status: "idle" | "loading" | "succeeded";
+  status: "idle" | "loading" | "succeeded" | "failed";
   error: string | null;
 }
 const initialState = {
@@ -56,8 +59,7 @@ const formSlice = createSlice({
       state.error = null;
     });
     builder.addCase(loginThunk.fulfilled, (state) => {
-      state.status = "succeeded";
-      state.error = null;
+      state.status = "idle";
     });
     builder.addCase(loginThunk.rejected, (state, action) => {
       if (action.payload) {
@@ -71,6 +73,4 @@ const formSlice = createSlice({
 
 export { loginThunk };
 export const formState = (state: RootState) => state.form.status;
-export const formError = (state: RootState) => state.form.error;
-
 export default formSlice.reducer;
