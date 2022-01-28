@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import LoadingButton from "@mui/lab/LoadingButton";
@@ -6,24 +7,17 @@ import IconButton from "@mui/material/IconButton";
 import InputAdornment from "@mui/material/InputAdornment";
 import TextField from "@mui/material/TextField";
 import { FormikProps } from "formik";
-import React, { useState } from "react";
 import { formState } from "../../redux/reducers/formSlice";
 import { useAppSelector } from "../../redux/store/store";
-export interface User {
-  password: string;
-  email: string;
-  fullName: string;
-}
 
-interface IProps {
-  formik: FormikProps<User>;
-}
 const FormikForm = ({ formik }: IProps) => {
   const status = useAppSelector(formState).toString();
   const [showPassword, setShowPassword] = useState(false);
+
   const togglePasswordView = () => {
     setShowPassword(!showPassword);
   };
+
   return (
     <div>
       <form onSubmit={formik.handleSubmit}>
@@ -100,3 +94,13 @@ const FormikForm = ({ formik }: IProps) => {
 };
 
 export default FormikForm;
+
+export interface User {
+  password: string;
+  email: string;
+  fullName: string;
+}
+
+interface IProps {
+  formik: FormikProps<User>;
+}

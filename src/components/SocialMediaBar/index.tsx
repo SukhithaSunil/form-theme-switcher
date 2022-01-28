@@ -1,23 +1,29 @@
+import React from "react";
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
-import React from "react";
-import { AppleButton, FacebookButton, GoogleButton } from "./style";
+import {
+  AppleButton,
+  FacebookButton,
+  GoogleButton,
+  ORWrapper,
+  ButtonWrapper,
+} from "./style";
+
 const SocialMediaBar = () => {
   return (
     <>
-      <div style={{ width: "25%", margin: "auto" }}>
+      <ORWrapper>
         <Divider>
           <Typography color="#A99E82"> {"OR"}</Typography>
         </Divider>
-      </div>
-
-      <div style={{ display: "flex" }}>
+      </ORWrapper>
+      <ButtonWrapper>
         <GoogleButton>
           <span>Sign in with Google</span>
         </GoogleButton>
         <FacebookButton />
         <AppleButton />
-      </div>
+      </ButtonWrapper>
     </>
   );
 };

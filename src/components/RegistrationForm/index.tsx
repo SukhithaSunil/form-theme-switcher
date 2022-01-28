@@ -16,6 +16,7 @@ const RegistrationForm = () => {
   const dispatch = useAppDispatch();
   const errorMsg = useSelector(formError);
   const status = useSelector(formState).toString();
+
   const notifyErrorMsg = () =>
     toast.error(errorMsg, {
       autoClose: 2000,
@@ -23,6 +24,7 @@ const RegistrationForm = () => {
       pauseOnHover: false,
       draggable: true,
     });
+
   const notifySuccess = () =>
     toast.success("Valid Credentials", {
       autoClose: 2000,
@@ -30,6 +32,7 @@ const RegistrationForm = () => {
       pauseOnHover: false,
       draggable: true,
     });
+
   useEffect(() => {
     if (status === "succeeded") notifySuccess();
     if (errorMsg) notifyErrorMsg();
@@ -46,9 +49,11 @@ const RegistrationForm = () => {
       .min(8, "Password should be of minimum 8 characters length")
       .required("Password is required"),
   });
+
   const handleFormSubmit = (user: User) => {
     dispatch(loginThunk(user));
   };
+
   const formikConfig = useFormik({
     initialValues: {
       fullName: "",
@@ -60,12 +65,13 @@ const RegistrationForm = () => {
       handleFormSubmit(values);
     },
   });
+
   return (
     <>
       <FormikForm formik={formikConfig} />
       <ToastContainer
         position="bottom-left"
-        autoClose={3000}
+        autoClose={2000}
         hideProgressBar
         closeOnClick
         rtl={false}

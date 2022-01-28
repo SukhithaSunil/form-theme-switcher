@@ -2,12 +2,11 @@ import React from "react";
 import Grid from "@mui/material/Grid";
 import assests from "../../assets/images/index";
 
-const SignUpImage = () => {
+const CoverImage = () => {
   return (
     <Grid
       item
       xs={false}
-      // sm={4}
       md={7}
       sx={{
         backgroundRepeat: "no-repeat",
@@ -23,4 +22,4 @@ const SignUpImage = () => {
   );
 };
 
-export default SignUpImage;
+export default CoverImage;

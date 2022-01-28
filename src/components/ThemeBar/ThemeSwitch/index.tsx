@@ -1,9 +1,8 @@
 import React from "react";
-import { changeTheme } from "../../../redux/reducers/themeSlice";
+import { changeTheme, currentTheme } from "../../../redux/reducers/themeSlice";
 import { useAppDispatch } from "../../../redux/store/store";
-import ThemeSwitcher from "./styles";
-import { currentTheme } from "../../../redux/reducers/themeSlice";
 import { useAppSelector } from "../../../redux/store/store";
+import ThemeSwitcher from "./styles";
 
 const ThemeSwitch = () => {
   const dispatch = useAppDispatch();
@@ -11,6 +10,7 @@ const ThemeSwitch = () => {
   const handleChangeTheme = () => {
     dispatch(changeTheme());
   };
+
   return (
     <div>
       <ThemeSwitcher

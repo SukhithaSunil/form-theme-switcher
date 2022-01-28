@@ -18,7 +18,6 @@ const facebbookConfig = {
   icon: createSvgIcon(FacebookIcon),
   style: { width: "65px", color: "#3b5998" },
 };
-/** My Facebook login button. */
 const appleConfig = {
   iconFormat: (name: string) => `fa fa-${name}`,
   icon: createSvgIcon(AppleIcon),
@@ -37,4 +36,13 @@ export const AppleButton = styled(MyAppleButton)(({ theme }) => ({
   background: `${theme.palette.secondary.main}!important`,
   borderRadius: "6px!important",
   boxShadow: "none!important",
+}));
+
+export const ORWrapper = styled("div")(() => ({
+  width: "25%",
+  margin: "auto",
+}));
+
+export const ButtonWrapper = styled("div")(() => ({
+  display: "flex",
 }));

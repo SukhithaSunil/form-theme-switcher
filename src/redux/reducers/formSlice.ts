@@ -30,7 +30,6 @@ const loginThunk = createAsyncThunk<
     return thunkApi.rejectWithValue({ message } as loginError);
   }
   const resp = await response.json();
-  console.log(resp);
   return resp;
 });
 

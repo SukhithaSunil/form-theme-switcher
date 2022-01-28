@@ -2,23 +2,12 @@ import React from "react";
 import Typography from "@mui/material/Typography";
 import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 import ThemeSwitch from "./ThemeSwitch";
+import { Wrapper, TextWrapper } from "./style";
 
 const ThemeBar = () => {
   return (
-    <div
-      style={{
-        display: "flex",
-        width: "100%",
-        justifyContent: "space-between",
-        alignItems: "center",
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-        }}
-      >
+    <Wrapper>
+      <TextWrapper>
         <Typography
           variant="h6"
           gutterBottom
@@ -28,11 +17,10 @@ const ThemeBar = () => {
         >
           Travelguru
         </Typography>
-
         <ArrowCircleRightIcon color="primary" />
-      </div>
+      </TextWrapper>
       <ThemeSwitch />
-    </div>
+    </Wrapper>
   );
 };
 
