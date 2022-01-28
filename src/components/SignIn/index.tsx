@@ -11,7 +11,7 @@ import { FormDivider, Wrapper } from "./style";
 
 const SignIn = () => {
   return (
-    <Grid container component="main" sx={{ padding: { md: "75px" } }}>
+    <Grid container component="main" sx={{ p: { md: "75px" } }}>
       <CssBaseline />
       <CoverImage />
       <Grid
