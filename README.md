@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Theme Switcher using React + Redux + Local storage
 
-Login page which will allow user to enter full name ,email and password, which demostarte the following.
+A login page which will allow user to enter full name,email and password, which demostarte the following.
 1. Dark/light theme switching feature
 2. Storing selected theme in local storage
 2. Form validations
@@ -15,7 +15,8 @@ Login page which will allow user to enter full name ,email and password, which d
 2. Open your terminal
 3. $ cd form-theme-switcher
 4. $ npm install
-5. This should install all the dependencies. Once done
+ This should install all the dependencies. 
+6. Once done
     Run
     $ npm  run dev
     to start the server.
