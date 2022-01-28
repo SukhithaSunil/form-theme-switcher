@@ -9,7 +9,7 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import SignUpImage from "../SignUpImage";
-import RegsitrationForm from "../RegsitrationForm";
+import RegsitrationForm from "../RegistrationForm";
 import SocialMediaBar from "../SocialMediaBar";
 import ThemeBar from "../ThemeBar";
 
@@ -60,7 +60,7 @@ const SignUp = () => {
               </Typography>
 
               <Link href="#" underline="none" sx={{ fontWeight: 600 }}>
-                {" Sign Up"}
+                &nbsp;&nbsp;{"Sign Up"}
               </Link>
             </div>
           </div>

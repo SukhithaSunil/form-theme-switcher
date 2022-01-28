@@ -1,44 +1,32 @@
 import React, { useState } from "react";
-import { useFormik } from "formik";
-import * as yup from "yup";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import IconButton from "@mui/material/IconButton";
+import CircularProgress from "@mui/material/CircularProgress";
+import LoadingButton from "@mui/lab/LoadingButton";
 
-const validationSchema = yup.object({
-  fullName: yup
-    .string()
-    // .min(8, "Password should be of minimum 8 characters length")
-    .required("Full name is required"),
-  email: yup
-    .string()
-    .email("Enter a valid email")
-    .required("Email is required"),
-  password: yup
-    .string()
-    .min(8, "Password should be of minimum 8 characters length")
-    .required("Password is required"),
-});
+import { FormikProps } from "formik";
+import { useAppDispatch, useAppSelector } from "../../redux/store/store";
+import { formState } from "../../redux/reducers/formSlice";
+export interface User {
+  password: string;
+  email: string;
+  fullName: string;
+}
 
-const RegsitrationForm = () => {
-  const [showPassword, setShowPassword] = useState(true);
-  const handleShowPassword = () => {
+interface IProps {
+  formik: FormikProps<User>;
+}
+const FormikForm = ({ formik }: IProps) => {
+  const dispatch = useAppDispatch();
+  const status = useAppSelector(formState).toString();
+  const [showPassword, setShowPassword] = useState(false);
+  const togglePasswordView = () => {
     setShowPassword(!showPassword);
   };
-  const formik = useFormik({
-    initialValues: {
-      fullName: "",
-      email: "",
-      password: "",
-    },
-    validationSchema: validationSchema,
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-    },
-  });
 
   return (
     <div>
@@ -62,6 +50,7 @@ const RegsitrationForm = () => {
           fullWidth
           id="email"
           placeholder="Email"
+          autoComplete="current-email"
           name="email"
           onBlur={formik.handleBlur}
           value={formik.values.email}
@@ -76,6 +65,7 @@ const RegsitrationForm = () => {
           name="password"
           placeholder="Password"
           id="password"
+          autoComplete="current-password"
           onBlur={formik.handleBlur}
           value={formik.values.password}
           onChange={formik.handleChange}
@@ -85,31 +75,32 @@ const RegsitrationForm = () => {
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
-                <IconButton onClick={handleShowPassword} edge="end">
+                <IconButton onClick={togglePasswordView} edge="end">
                   {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
                 </IconButton>
               </InputAdornment>
             ),
           }}
         />
-        <Button
-          color="primary"
+        <LoadingButton
+          loading={status === "loading"}
           variant="contained"
+          loadingIndicator={<CircularProgress color="primary" size={25} />}
           fullWidth
           type="submit"
           sx={{
             height: 56,
             mt: 2,
             textTransform: "capitalize",
+            fontWeight: "500",
+            fontSize: "medium",
           }}
         >
-          <span style={{ fontWeight: "500", fontSize: "medium" }}>
-            Continue
-          </span>
-        </Button>
+          Continue
+        </LoadingButton>
       </form>
     </div>
   );
 };
 
-export default RegsitrationForm;
+export default FormikForm;

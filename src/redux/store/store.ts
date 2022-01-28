@@ -1,10 +1,12 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import { useDispatch, TypedUseSelectorHook, useSelector } from "react-redux";
 import themeReducer from "../reducers/themeSlice";
+import formReducer from "../reducers/formSlice";
 
 export const store = configureStore({
   reducer: {
     theme: themeReducer,
+    form: formReducer,
   },
 });
 
