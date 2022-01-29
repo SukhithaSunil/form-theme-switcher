@@ -13,6 +13,7 @@ Login page which will allow user to enter full name ,email and password, which d
 7. Toast for API response
 
 ## Getting Started and Installing
+![image](https://user-images.githubusercontent.com/68099318/151653085-656a0091-1246-4f37-b5a4-143fa1f824ca.png)
 
 1. First Git clone the repo into your computer
    git clone https://github.com/SukhithaSunil/form-theme-switcher
