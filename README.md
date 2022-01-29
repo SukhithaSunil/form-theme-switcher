@@ -1,11 +1,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/),[Redux Toolkit](https://redux-toolkit.js.org/) and [Typescript](https://redux-toolkit.js.org/usage/usage-with-typescript) template.
 
-# Theme Switcher using React + Redux Toolkit+ Local storage
+# Theme Switcher using React + Redux Toolkit+ Local storage + MUI
 
 Login page which will allow user to enter full name ,email and password, which demostarte the following.
 1. Dark/light theme switching feature
 2. Storing selected theme in local storage
-3. Form validations
+3. Form validations using Formik
 4. createAsyncThunk for calling mock API
 5. Mock API using json-server-auth
 6. Submitting data to mock API. valid credential (full name: test, email: test@gmail.com, password:12345678)
