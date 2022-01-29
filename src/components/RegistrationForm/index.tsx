@@ -4,12 +4,9 @@ import "material-react-toastify/dist/ReactToastify.css";
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import * as yup from "yup";
-import {
-  formError,
-  formState,
-  loginThunk,
-} from "../../redux/reducers/formSlice";
+import { formError, formState } from "../../redux/reducers/formSlice";
 import { useAppDispatch } from "../../redux/store/store";
+import { loginThunk } from "../../services";
 import FormikForm from "./FormikForm";
 
 const RegistrationForm = () => {
