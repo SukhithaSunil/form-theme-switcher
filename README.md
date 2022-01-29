@@ -16,8 +16,6 @@ A login page which will allow user to enter full name,email and password, which 
 3. $ cd form-theme-switcher
 4. $ npm install
  This should install all the dependencies. 
-6. Once done run 
-    $ NPM RUN DEV
-    to start the server.
+6. Once done run   $ NPM RUN DEV       to start the server.
     open (http://localhost:3000) in your browser.
     This should open up the Demo App
