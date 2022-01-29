@@ -2,9 +2,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Theme Switcher using React + Redux Toolkit+ Local storage + MUI + Typescript
 
-Login page which will allow user to enter full name ,email and password, which demostarte the following.
+Login page which will allow user to enter full name ,email and password, which demonstrates the following.
+
 1. Dark/light theme switching feature
-2. Storing selected theme in local storage, so when user reopen the page enable the user seleted mode automatically
+2. Keeping the selected theme in local storage, so that when the user reopens the page, the user's selected mode is automatically enabled
 3. Form validations using Formik
 4. createAsyncThunk for calling mock API
 5. Mock API using json-server-auth
