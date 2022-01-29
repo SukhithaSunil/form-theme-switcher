@@ -26,6 +26,8 @@ const formSlice = createSlice({
     builder.addCase(loginThunk.rejected, (state, action) => {
       if (action.payload) {
         state.error = action.payload.errorMessage;
+      } else {
+        state.error = action.error.message;
       }
       state.status = "idle";
     });
