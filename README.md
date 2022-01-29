@@ -11,9 +11,10 @@ Login page which will allow user to enter full name ,email and password, which d
 5. Mock API using json-server-auth
 6. Submitting data to mock API. valid credential (full name: test, email: test@gmail.com, password:12345678)
 7. Toast for API response
+![Screenshot (113)](https://user-images.githubusercontent.com/68099318/151653112-2ef3b559-b002-4aa7-ae5a-56b476ee63e9.png)
+![Screenshot (114)](https://user-images.githubusercontent.com/68099318/151653153-20e09a7f-4b2d-44e0-ade0-af9e1504ec8e.png)
 
 ## Getting Started and Installing
-![image](https://user-images.githubusercontent.com/68099318/151653085-656a0091-1246-4f37-b5a4-143fa1f824ca.png)
 
 1. First Git clone the repo into your computer
    git clone https://github.com/SukhithaSunil/form-theme-switcher
