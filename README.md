@@ -6,7 +6,7 @@ Login page which will allow user to enter full name ,email and password, which d
 
 1. Dark/light theme switching feature
 2. Keeping the selected theme in local storage, so that when the user reopens the page, the user's selected mode is automatically enabled
-3. Form validations using Formik
+3. Form validations using Formik and Yup
 4. createAsyncThunk for calling mock API
 5. Mock API using json-server-auth
 6. Submitting data to mock API. valid credential (full name: test, email: test@gmail.com, password:12345678)
